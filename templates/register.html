@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>Contact us</li>
+        </ol>
+        <h2>Contact Us</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>New Patient Registration</h2>
+          </div>
+          <div class="row mt-1 d-flex justify-content-end" data-aos="fade-right" data-aos-delay="100">
+            <div class="col-lg-12 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
+                {% if source %}
+                  <p class="alert alert-warning">{{message}}</p>
+                {% endif %}
+                <h4>Please fill all the details, fields marked with * are mandatory</h4>
+             
+              <form method="POST" action="{% url 'registration' %}" class="php-email-form">
+                {% csrf_token %}
+                <div class="form-row">
+                  <div class="col-md-6 form-group">
+                    <label>First Name</label>
+                    <input type="text" name="firstname" class="form-control" placeholder="First Name"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="lastname" class="form-control" placeholder="Last Name"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Parent/Guardian</label>
+                    <input type="text" name="parent" class="form-control" placeholder="Parent/Guardian"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Age</label>
+                    <input type="text" name="age" class="form-control" placeholder="Age"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dateofbirth" class="form-control" placeholder="Date of Birth"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Cell Phone Number</label>
+                    <input type="text" name="phone" class="form-control" placeholder="Cell Phone Number"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Email Address </label>
+                    <input type="email" name="email" class="form-control" placeholder="Email Address"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Who reffered you?</label>
+                    <input type="text" name="refferedyou" class="form-control" placeholder="Who reffered you"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>How did you hear About Us </label>
+                    <select class="form-control"  name="hereabout" >
+                        <option value="">Therapist</option>
+                        <option value="">Significants Other</option>
+                        <option value="">Friend</option>
+                        <option value="">Subling</option>
+                        <option value="">Parent</option>
+                        <option value="">Family Member</option>
+                        <option value="">Primary Care Doctor</option>
+                        <option value="">Google Search</option>
+                        <option value="">Facebook Post</option>
+                        <option value="">Other</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Emergency Name</label>
+                    <input type="text" name="emergencyname" class="form-control" placeholder="Emergency Name"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Emergency Phone Number</label>
+                    <input type="text" name="emergencyphone" class="form-control" placeholder="Emergency Phone Number"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Emergency Relationship </label>
+                    <input type="text" name="emergencyrelationship" class="form-control" placeholder="Emergency Relationship "/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Allergies</label>
+                    <input type="text" name="allergies" class="form-control" placeholder="Allergies"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Current Medication</label>
+                    <input type="text" name="currentmedication" class="form-control" placeholder="Current Medication"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Please Describe the Problem that led you to consult us?</label>
+                    <textarea name="describeproblem" class="form-control" ></textarea>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>What are you interested In? *</label><br>
+                    <input type="radio" name="interestedin"/>Adult Psycchiatric Evaluation<br>
+                    <input type="radio" name="interestedin"/>Child or Adolescent Evaluation<br>
+                    <input type="radio" name="interestedin"/>Medication Management<br>
+                    <input type="radio" name="interestedin"/>Psychotherapy<br>  
+                    <input type="radio" name="interestedin"/>Substance Abuse and Addiction Service  <br>  
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit">Register</button></div>
+              </form>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Contact Section -->
+  
+  </main><!-- End #main -->
+
+  {% endblock %}

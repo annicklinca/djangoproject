@@ -1,0 +1,310 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex justify-cntent-center align-items-center" style="background-image: url('{% for slide in slideone %} media/{{slide.image}}{%endfor%}');" >
+    <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
+
+      <!-- Slide 1 -->
+      {% for slide in slideone %}
+      <div class="carousel-item active">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">{{slide.title}}</h2>
+          <p class="animate__animated animate__fadeInUp">{{slide.body|safe}}</p>
+          <a href="#about" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-get-started animate__animated animate__fadeInUp scrollto">Get an Appointment</a>
+        </div>
+      </div>
+      {% endfor %}
+
+
+      <!-- Slide 2 -->
+      {% for slide in slides %}
+      <div class="carousel-item" style="background-image: url('media/{{slide.image}});">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">{{slide.title}}</h2>
+          <p class="animate__animated animate__fadeInUp">{{slide.body|safe}}</p>
+          <a href="#about" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-get-started animate__animated animate__fadeInUp scrollto">Get an Appointment</a>
+        </div>
+      </div>
+      {% endfor %}
+
+      
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Icon Boxes Section ======= -->
+    <section id="icon-boxes" class="icon-boxes">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+            <div class="icon-box">
+              <h4 class="title"><a href="">Appointment.</a></h4>
+              <p class="description">Make an Appointment with Dr.Kimani From Restorative Psych.</p>
+              <br>
+              <button class="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icofont-edit"></i> Appointment Now</button>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon-box">
+              <h4 class="title"><a href="">Doctor's Schedule.</a></h4>
+              <p class="description">Learn More about Dr.Kimani by viewing his full profile</p>
+              <br>
+              <button class="button"><i class="icofont-user"></i> View profile</button>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box">
+              <h4 class="title"><a href="">Contact Us at Restorative Psych.</a></h4>
+              <p class="description"><i class="icofont-phone"></i>office: 732-727-4700</p>
+              <p class="description"><i class="icofont-phone"></i>Cell Phone: 732-322-1807</p>
+              <br>
+              <button class="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icofont-phone"></i> send us an inquiry</button>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="icofont-clock-time"></i></div>
+              <h4 class="title"><a href="">Opening Hours</a></h4>
+              <p class="description">Mon - Fri8:30 a.m - 8:30p.m
+                <hr>
+                Saturday9.00a.m- 6:00pm
+                <hr>
+                Sunday Closed</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Icon Boxes Section -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Appointment Now</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{% url 'appointment' %}" class="php-email-form">
+          {% csrf_token %}
+       <div class="form-row">
+          <div class="col-md-12 form-group">
+            <label for=""><i class="icofont-user" style="color: skyblue;"></i>Name</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" />
+          </div>
+          <div class="col-md-12 form-group">
+            <label for=""><i class="icofont-mail" style="color: skyblue;"></i>Email</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" />
+          </div>
+          <div class="col-md-12 form-group">
+            <label for=""><i class="icofont-phone" style="color: skyblue;"></i>Phone Number</label>
+            <input type="text" class="form-control" name="phone" id="email" placeholder="Your Phone"  />
+          </div>
+          <div class="col-md-12 form-group">
+            <label for=""><i class="icofont-calendar" style="color: skyblue;"></i>Date</label>
+            <input type="date" class="form-control" name="date" id="subject" placeholder="date"  />
+          </div>
+          <div class="col-md-12 form-group">
+            <label for=""><i class="icofont-envelope" style="color: skyblue;"></i>Message</label>
+            <textarea name="message" class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="text-center"><button type="submit" class="btn btn-primary">Send</button></div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+        <div class="row content">
+          {% for welcome in welcomes %}
+          <div class="col-lg-6">
+            <div class="section-title">
+              <h2>{{welcome.title}}</h2>
+            </div>
+            {{welcome.body|safe}}
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <img src="media/{{welcome.image}}" style="width: 100%; border-top-right-radius: 70px; border-bottom-left-radius: 70px;" alt="">
+            <p>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="row">
+                  <div class="col-lg-3" style="padding: 20px; align-items: center; text-align: center;"><i class="icofont-plus servIcon"></i></div>
+                  <div class="col-lg-9">
+                    <h5><a href="">Family psychiatry</a></h5>
+                    <p>Medication Management for Children and adolescents, adults and geriatric patients</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="row">
+                  <div class="col-lg-3" style="padding: 20px; align-items: center; text-align: center;"><i class="icofont-microscope servIcon"></i></div>
+                  <div class="col-lg-9">
+                    <h5><a href="">Substance Abuse and Addiction</a> </h5>
+                    <p>opioid addiction treatment among other addictive behaviors</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="row">
+                  <div class="col-lg-3" style="padding: 20px; align-items: center; text-align: center;"><i class="icofont-users-alt-1 servIcon"></i></div>
+                  <div class="col-lg-9">
+                    <h5><a href="">Trained psychotherapist</a></h5>
+                    <p>Therapeutic Counselling And Addiction Counselling</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+ 
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Our <span style="color: rgb(0, 174, 255);">Services</span></h2>
+          <p>Restorative Psych Behavioral Health LLC offers a wide arange of Psychiatric Services to our clients..</p>
+        </div>
+
+        <div class="row">
+         
+          {% for service in services %}
+          <div class="col-md-4 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box">
+              <i class=""><img src="media/{{service.image}}"/></i>
+              <h4><a href="#">{{service.title}}</a></h4>
+              <p>{{service.body | safe}}</p>
+            </div>
+          </div>
+          {% endfor %}
+         
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class=" bg-fixed"  style="background-image: url('https://images.unsplash.com/photo-1589279003513-467d320f47eb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80');" >
+      <div class="container">
+
+        <div class="row p-4" data-aos="zoom-in">
+          <div class="col-lg-8 text-center text-lg-left">
+            <h3 class="font-bold text-gray-600">
+              View More Information About Our Services.</h3>
+            <p>We are dedicated to giving the best Psychiatric Services.</p>
+          </div>
+          <div class="col-lg-4 cta-btn-container text-center">
+            <a class="bg-blue-400 py-3 px-3 rounded-full text-gray-100 font-bold text-2xl align-middle" href="#">Explore All Our Services</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+  
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="row mt-1 d-flex justify-content-end" data-aos="fade-right" data-aos-delay="100">
+
+          <div class="col-lg-5">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Location:</h4>
+                <p>1145 BordenTown Ave
+                  Suite 18 Parlin, NJ,08859</p>
+              </div>
+
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@restorativepsych.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Call Us Today:</h4>
+                <p>
+                  732-727-4700
+                  </p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
+
+            <form action="" method="post" role="form" class="php-email-form">
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+  {% endblock %}

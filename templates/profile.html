@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>Doctor Profile</li>
+        </ol>
+        <h2>Doctor's Profile</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h3>Dr. Joseph Kimani DNP, PMHNP-BC</h3>
+                <h5>C.E.O And Founder of Restorative Psych Behavioral Health LLC</h5>
+                <p>Dr. Kimani is ANCC Board certified as a Psychiatric Nurse Practitioner and Licensed in New Jersey. He specializes in family psychiatry and addiction, and has worked extensively with children and adolescents, adults and geriatric patients with psychiatric/mental illnesses. Dr.Kimani works in several facilities and agencies, where he is contracted to treat patients with psychiatric/ mental illness spectrum. He treats patients with schizophrenia, schizoaffective, bipolar spectrum, depression and anxiety, generalized anxiety disorder (GAD), Social anxiety/phobia, phobias, posttraumatic stress disorder (PTSD), body dysmorphia, eating disorders, children and adults with Attention deficit hyperactivity disorders (ADHD) among other disorders. Dr.Kimani also specializes in substance abuse and addiction.</p>
+            </div>
+            <div class="col-lg-4">
+                <img src="{% static 'img/dd.jpg' %}" style="width: 100%;" alt="logon photo">
+                <p>Dr.Kimani is certified in opioid addiction treatment among other addictive behaviors and holds a DEA waiver to prescribe suboxone as the main drug for opioid addiction intervention. He also prescribes and administer Vivitrol injection as an alternative treatment for opioid addiction. Dr. Kimani is also a trained psychotherapist, and besides psychiatric services , he also spends time with patients offering therapeutic counseling. </p>
+                <img src="{% static 'img/dr.jpg' %}" style="width: 100%;" alt="logon photo">
+                </div>
+            <div class="col-lg-4">
+                <div class="profile">
+                  <h5>Contact info</h5>
+                  <p style="font-size: smaller;"><i class="icofont-phone"></i>Office Number: 732-727-4700</p>
+                  <p style="font-size: smaller;"><i class="icofont-phone"></i>Cell Phone: 732-322-1807</p>
+                  <p style="font-size: smaller;"><i class="icofont-send-mail"></i>drjoseph@restorativepsych.com</p>
+                  <p style="font-size: smaller;"><i class="icofont-send-mail"></i>info@restorativePsych.com.com</p>
+                  <h5>Follow Me</h5>
+                  <a href=""><i class="icofont-facebook" style="background-color: blue; padding: 2px; color: white; "></i></a>
+                  <a href=""><i class="icofont-twitter" style="background-color: rgb(95, 190, 235); padding: 2px; color: white; "></i></a>
+                  <a href=""><i class="icofont-linkedin" style="background-color: rgb(5, 190, 223); padding: 2px; color: white; "></i></a>
+                  <h5>Our services</h5>
+                  <a href="{% url 'services' %}"><button><i class="icofont-ebook"></i>Explore Our Services</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-7 row">
+            <div class="col-lg-12">
+                <h2>Why Choose Us?</h2>
+                <p>This Reasons That You Should Contact Us</p>
+            </div>  
+            <div class="col-lg-6">
+                <div class="row">
+                  <div class="col-lg-3" style="padding: 20px; align-items: center; text-align: center;"><i class="icofont-plus servIcon"></i></div>
+                  <div class="col-lg-9">
+                    <h5><a href="">Family psychiatry</a></h5>
+                    <p>Medication Management for Children and adolescents, adults and geriatric patients</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="row">
+                  <div class="col-lg-3" style="padding: 20px; align-items: center; text-align: center;"><i class="icofont-microscope servIcon"></i></div>
+                  <div class="col-lg-9">
+                    <h5><a href="">Substance Abuse and Addiction</a></h5>
+                    <p>opioid addiction treatment among other addictive behaviors</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="row">
+                  <div class="col-lg-3" style="padding: 20px; align-items: center; text-align: center;"><i class="icofont-users-alt-1 servIcon"></i></div>
+                  <div class="col-lg-9">
+                    <h5><a href="">Trained psychotherapist</a></h5>
+                    <p>Therapeutic Counselling And Addiction Counselling</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="row">
+                  <div class="col-lg-3" style="padding: 20px; align-items: center; text-align: center;"><i class="icofont-plus servIcon"></i></div>
+                  <div class="col-lg-9">
+                    <h5><a href="">Family psychiatry</a></h5>
+                    <p>Medication Management for Children and adolescents, adults and geriatric patients</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="row">
+                  <div class="col-lg-3" style="padding: 20px; align-items: center; text-align: center;"><i class="icofont-microscope servIcon"></i></div>
+                  <div class="col-lg-9">
+                    <h5><a href="">Substance Abuse and Addiction</a></h5>
+                    <p>opioid addiction treatment among other addictive behaviors</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="row">
+                  <div class="col-lg-3" style="padding: 20px; align-items: center; text-align: center;"><i class="icofont-users-alt-1 servIcon"></i></div>
+                  <div class="col-lg-9">
+                    <h5><a href="">Trained psychotherapist</a></h5>
+                    <p>Therapeutic Counselling And Addiction Counselling</p>
+                  </div>
+                </div>
+              </div>    
+        </div>
+          <div class="col-lg-4">
+
+            <img src="{% static 'img/blog-1.jpg' %}" alt="">
+          </div> 
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+
+  {% endblock %}

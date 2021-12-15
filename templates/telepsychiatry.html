@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>Telepsychiatry</li>
+        </ol>
+        <h2>Telepsychiatry</h2>
+      </div>
+    </section>
+    <!-- End Breadcrumbs -->
+    <!-- ======= contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>TELEPSYCHIATRY INFORMED CONSENT</h2>
+          </div>
+          <div class="row mt-1 d-flex justify-content-end" data-aos="fade-right" data-aos-delay="100">
+            <div class="col-lg-12 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
+                {% if source %}
+                  <p class="alert alert-warning">{{message}}</p>
+                {% endif %}
+                <h4 style="text-align: center;">Please Fill the required Details</h4>
+             
+              <form method="POST" action="{% url 'reqtelepsychiatry' %}" class="php-email-form">
+                {% csrf_token %}
+                <div class="form-row">
+                  <div class="col-md-6 form-group">
+                    <label>Patient First Name</label>
+                    <input type="text" name="firstname" class="form-control" placeholder="Patient First Name"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Patient Last Name</label>
+                    <input type="text" name="lastname" class="form-control" placeholder="Patient Last Name"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Patient Email Address</label>
+                    <input type="text" name="emailaddress" class="form-control" placeholder="Patient Email Address"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Patient Phone Number</label>
+                    <input type="text" name="phonenumber" class="form-control" placeholder="Patient Phone Number"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dateofbirth" class="form-control" placeholder="Date of Birth"/>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Your Full Address</label>
+                    <input type="text" name="fulladdress" class="form-control" placeholder="Your Full Address"/>
+                  </div>
+                  <div class="col-md-12 form-group">
+                    <h3>Introduction</h3>
+                    <p>Telepsychiatry is the form of telemedicine that allows patients to access psychiatirc care using audio-video interface such as videoconferencing.
+
+                        Electronic systems used will incorporate network and software security protocols to protect the confidentiality of patient identification and imaging data and will include measures to safeguard the data and to ensure its integrity against intentional or unintentional corruption.</p>
+                </div>
+                <div class="col-md-12 form-group">
+                  <h3>Expected Benefits</h3>
+                  <li><i class=""></i>Improved access to psychiatric care by enabling a patient to remain in his/her home or office</li>
+                  <li><i class=""></i>More efficient psychiatric evaluation and management.</li>
+                  <li><i class=""></i>Obtaining expertise of a distant specialist.</li>
+                </div>
+                <div class="col-md-12 form-group">
+                  <h3>Possible Risks</h3>
+                  <p>As with any medical procedure, there are potential risks associated with the use of telepsychiatry. These risks include, but may not be limited to:</p>
+                  <ol>
+                      <li>1.In rare cases, information transmitted may not be sufficient (e.g. poor resolution of images) to allow for appropriate medical decision making by the physician and consultant(s);</li>
+                      <li>2.Delays in medical evaluation and treatment could occur due to deficiencies or failures of the equipment;</li>
+                      <li>3.In very rare instances, security protocols could fail, causing a breach of privacy of personal medical information;</li>
+                      <li>4.In rare cases, a lack of access to complete medical records may result in adverse drug interactions or allergic reactions or other judgmental errors;</li>
+                   </ol>
+                </div>
+                <div class="col-md-12 form-group">
+                  <h3>By signing this form, I understand the following:</h3>
+                  <ol>
+                      <li>1.I understand that the laws that protect privacy and the confidentiality of medical information also apply to telepsychiatry, and that no information obtained in the use of telepsychiatry which identifies me will be disclosed to researchers or other entities without my consent.</li>
+                      <li>2.I understand that I have the right to withhold or withdraw my consent to the use of telepsychiatry in the course of my care at any time, without affecting my right to future care or treatment.</li>
+                      <li>3.I understand that I have the right to inspect all information obtained in the course of a telepsychiatry interaction, and may receive copies of this information for a reasonable fee.</li>
+                      <li>4.I understand that a variety of alternative methods of psychiatric care may be available to me, and that I may choose one or more of these at any time.</li>
+                      <li>5.I understand that it is my duty to inform my psychiatrist of any other healthcare providers involved in my medical/psychiatric care
+                      <li>6.I understand that I may expect the anticipated benefits from the use of telepsychiatry in my care, but that no results can be guaranteed or assured.
+                    </li>
+                    </li>                  
+                    </ol>
+                </div>
+                <div class="col-md-12 form-group">
+                  <h3>Patient Consent To The Use of Telepsychiatry</h3>
+                  <p>I have read and understand the information provided above regarding telepsychiatry, have discussed it with my psychiatrist or such assistants as may be designated, and all of my questions have been answered to my satisfaction. I hereby give my informed consent for the use of telepsychiatry in my medical care.
+
+                    I hereby authorize Dr. Joseph Kimani to use telepsychiatry in the course of my diagnosis and treatment.</p>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label>Signature of Patient (or person authorized to sign for patient):</label>
+                  <input type="checkbox" value="Signature" name="signature" class="form-control" placeholder="Date of Birth"/>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label>Date</label>
+                  <input type="date" name="datesign" class="form-control" placeholder="Your Full Address"/>
+                  <br>
+                  <label>If authorized signer, relationship to patient:</label>
+                  <input type="text" name="signer" class="form-control" placeholder="Your Full Address"/>
+                </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit">Submit Consent</button></div>
+              </form>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Contact Section -->  
+  </main><!-- End #main -->
+  {% endblock %}
